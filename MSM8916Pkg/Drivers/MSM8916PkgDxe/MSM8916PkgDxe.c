@@ -43,17 +43,9 @@ InitPeripherals (
   IN VOID
   )
 {
- // MmioWrite32(0x004ab000, 0);
-  /* This also crashes. Do you really hate memory attributes or something?
-  EFI_STATUS            Status;
-  // https://lists.01.org/pipermail/edk2-devel/2017-August/013417.html
-  Status = gCpu->SetMemoryAttributes (gCpu, 0xa1a10000, 0x200000,
-                  EFI_MEMORY_UC | EFI_MEMORY_XP);
-  ASSERT_EFI_ERROR (Status);
-  Status = gCpu->SetMemoryAttributes (gCpu, 0x9d400000, 0x2400000,
-                  EFI_MEMORY_WC | EFI_MEMORY_XP);
-  ASSERT_EFI_ERROR (Status);
-  */
+	for (UINT64 addr = 0x8BB80C000ull; addr < 0x8BB80C000ull + (1088 * 1920 * 4); addr += 4) {
+		MmioWrite32(addr, 0xffffff);
+	}
 }
 
 /**

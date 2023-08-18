@@ -141,17 +141,33 @@ ArmPlatformGetVirtualMemoryMap (
 
   Index = 0;
 
+/* hxstart base is 20e0d4004, so we're definitely at the start of iomem there */
+#define APPLE_CORE_SYSTEM_MMIO_RANGE_1_BASE 0x200000000
+#define APPLE_PCIE_SYSTEM_MMIO_RANGE_1_BASE 0x600000000
+
+  // Core MMIO Devices
+  //VirtualMemoryTable[++Index].PhysicalBase  = APPLE_CORE_SYSTEM_MMIO_RANGE_1_BASE;
+  //VirtualMemoryTable[Index].VirtualBase     = APPLE_CORE_SYSTEM_MMIO_RANGE_1_BASE;
+  //VirtualMemoryTable[Index].Length          = 0x100000000;
+  //VirtualMemoryTable[Index].Attributes      = ARM_MEMORY_REGION_ATTRIBUTE_DEVICE;
+
+  // PCIe MMIO
+  //VirtualMemoryTable[++Index].PhysicalBase  = APPLE_PCIE_SYSTEM_MMIO_RANGE_1_BASE;
+  //VirtualMemoryTable[Index].VirtualBase     = APPLE_PCIE_SYSTEM_MMIO_RANGE_1_BASE;
+  //VirtualMemoryTable[Index].Length          = 0x10000000;
+  //VirtualMemoryTable[Index].Attributes      = ARM_MEMORY_REGION_ATTRIBUTE_DEVICE;
+
   // DDR - 4.0GB section
   VirtualMemoryTable[Index].PhysicalBase    = PcdGet64 (PcdSystemMemoryBase);
   VirtualMemoryTable[Index].VirtualBase     = PcdGet64 (PcdSystemMemoryBase);
   VirtualMemoryTable[Index].Length          = PcdGet64 (PcdSystemMemorySize);
   VirtualMemoryTable[Index].Attributes      = CacheAttributes;
 
-  // SDM845 SOC peripherals
-  VirtualMemoryTable[++Index].PhysicalBase  = SDM845_PERIPH_BASE;
-  VirtualMemoryTable[Index].VirtualBase     = SDM845_PERIPH_BASE;
-  VirtualMemoryTable[Index].Length          = SDM845_PERIPH_SZ;
-  VirtualMemoryTable[Index].Attributes      = ARM_MEMORY_REGION_ATTRIBUTE_DEVICE;
+  // FB
+  VirtualMemoryTable[++Index].PhysicalBase = 0x8BB80C000;
+  VirtualMemoryTable[Index].VirtualBase    = 0x8BB80C000;
+  VirtualMemoryTable[Index].Length         = 0x7F8000; /* 1088 * 1920 * 4 */
+  VirtualMemoryTable[Index].Attributes     = ARM_MEMORY_REGION_ATTRIBUTE_WRITE_THROUGH;
 
   // End of Table
   VirtualMemoryTable[++Index].PhysicalBase  = 0;

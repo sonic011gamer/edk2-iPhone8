@@ -13,12 +13,17 @@
 
 [PcdsFixedAtBuild.common]
   # System Memory (1.5GB)
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x60000000
-  
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x800000000
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0xC0000000
+#  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x830C00000
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000      # 256K stack
+  gMSM8916PkgTokenSpaceGuid.PcdUefiMemPoolBase|0x830D00000         # DXE Heap base address
+  gMSM8916PkgTokenSpaceGuid.PcdUefiMemPoolSize|0x03300000         # UefiMemorySize, DXE heap size
+  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x830C40000
+
   # Framebuffer (720x1280)
-  gMSM8916PkgTokenSpaceGuid.PcdMipiFrameBufferAddress|0x8e000000
-  gMSM8916PkgTokenSpaceGuid.PcdMipiFrameBufferWidth|720
-  gMSM8916PkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1280
-  gMSM8916PkgTokenSpaceGuid.PcdMipiFrameBufferVisibleWidth|720
-  gMSM8916PkgTokenSpaceGuid.PcdMipiFrameBufferVisibleHeight|1280
+  gMSM8916PkgTokenSpaceGuid.PcdMipiFrameBufferAddress|0x8BB80C000
+  gMSM8916PkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1088
+  gMSM8916PkgTokenSpaceGuid.PcdMipiFrameBufferHeight|1920
+  gMSM8916PkgTokenSpaceGuid.PcdMipiFrameBufferVisibleWidth|1088
+  gMSM8916PkgTokenSpaceGuid.PcdMipiFrameBufferVisibleHeight|1920

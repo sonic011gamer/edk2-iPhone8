@@ -213,7 +213,7 @@ SimpleFbDxeInitialize
 
     /* Retrieve simple frame buffer from pre-SEC bootloader */
     DEBUG((EFI_D_ERROR, "SimpleFbDxe: Retrieve MIPI FrameBuffer parameters from PCD\n"));
-    UINT32              MipiFrameBufferAddr     = FixedPcdGet32(PcdMipiFrameBufferAddress);
+    UINT64              MipiFrameBufferAddr     = FixedPcdGet64(PcdMipiFrameBufferAddress);
     UINT32              MipiFrameBufferWidth    = FixedPcdGet32(PcdMipiFrameBufferWidth);
     UINT32              MipiFrameBufferHeight   = FixedPcdGet32(PcdMipiFrameBufferHeight);
 

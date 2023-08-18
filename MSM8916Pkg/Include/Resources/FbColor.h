@@ -1,7 +1,7 @@
 #ifndef _FB_COLOR_H_
 #define _FB_COLOR_H_
 
-#define FB_BGRA8888_BLACK          0xff000000
+#define FB_BGRA8888_BLACK          0x00000000
 #define FB_BGRA8888_WHITE          0xffffffff
 #define FB_BGRA8888_CYAN           0xff00ffff
 #define FB_BGRA8888_BLUE           0xff0000ff
