@@ -20,7 +20,7 @@ GCC_ASM_EXPORT (_ModuleEntryPoint)
 .global _StackSize
 
 _StackBase:
-  .quad 0x830C00000
+  .quad 0x810C00000
 
 _StackSize:
   .quad FixedPcdGet64(PcdPrePiStackSize)
@@ -54,13 +54,13 @@ _CpuIndex:
   bl ASM_PFX(ArmDisableInterrupts)
 
   /* Ensure that the MMU and caches are off */
-  bl ASM_PFX(ArmDisableCachesAndMmu)
+ // bl ASM_PFX(ArmDisableCachesAndMmu)
  
   /* Invalide I-Cache */
-  bl ASM_PFX(ArmInvalidateInstructionCache)
+  //bl ASM_PFX(ArmInvalidateInstructionCache)
   
   /* Invalidate TLB */
-  bl ASM_PFX(ArmInvalidateTlb)
+  //bl ASM_PFX(ArmInvalidateTlb)
 
 _SetupExceptionVector:
   LoadConstantToReg (FixedPcdGet32(PcdCpuVectorBaseAddress), x0)

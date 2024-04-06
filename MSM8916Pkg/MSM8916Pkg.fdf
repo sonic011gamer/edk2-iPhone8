@@ -25,7 +25,7 @@
 ################################################################################
 
 [FD.MSM8916PKG_UEFI]
-BaseAddress   = 0x830000000|gArmTokenSpaceGuid.PcdFdBaseAddress  # The base address of the Firmware in NOR Flash.
+BaseAddress   =0x801000000|gArmTokenSpaceGuid.PcdFdBaseAddress  # The base address of the Firmware in NOR Flash.
 Size          = 0x00200000|gArmTokenSpaceGuid.PcdFdSize         # The size in bytes of the FLASH Device
 ErasePolarity = 1
 
@@ -136,8 +136,7 @@ READ_LOCK_STATUS   = TRUE
   #
   # SoC Drivers
   #
-  INF MSM8916Pkg/Drivers/ClockDxe/ClockDxe.inf
-  INF MSM8916Pkg/Drivers/BamDxe/BamDxe.inf
+
 
   #
   # USB Host Support

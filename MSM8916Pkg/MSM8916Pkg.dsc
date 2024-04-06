@@ -38,7 +38,7 @@
 
 [LibraryClasses.common]
   OrderedCollectionLib|MdePkg/Library/BaseOrderedCollectionRedBlackTreeLib/BaseOrderedCollectionRedBlackTreeLib.inf
-  ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
+  ArmLib|MSM8916Pkg/Library/ArmLib/ArmBaseLib.inf
   ArmPlatformLib|MSM8916Pkg/Library/MSM8916PkgLib/MSM8916PkgLib.inf
   CompilerIntrinsicsLib|ArmPkg/Library/CompilerIntrinsicsLib/CompilerIntrinsicsLib.inf
 
@@ -81,30 +81,12 @@
   MemoryInitPeiLib|MSM8916Pkg/Library/MemoryInitPeiLib/PeiMemoryAllocationLib.inf
   PlatformPeiLib|MSM8916Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
 
-  # SoC Drivers
-  QcomPlatformClockInitLib|MSM8916Pkg/Library/QcomPlatformClockInitLib/QcomPlatformClockInitLib.inf
-
 [LibraryClasses.common.SEC]
   PrePiLib|EmbeddedPkg/Library/PrePiLib/PrePiLib.inf
   ExtractGuidedSectionLib|EmbeddedPkg/Library/PrePiExtractGuidedSectionLib/PrePiExtractGuidedSectionLib.inf
   HobLib|EmbeddedPkg/Library/PrePiHobLib/PrePiHobLib.inf
   MemoryAllocationLib|EmbeddedPkg/Library/PrePiMemoryAllocationLib/PrePiMemoryAllocationLib.inf
   PrePiHobListPointerLib|ArmPlatformPkg/Library/PrePiHobListPointerLib/PrePiHobListPointerLib.inf
-
-  # SoC Drivers
-  ClockLib|MSM8916Pkg/Drivers/ClockDxe/ClockImplLib.inf
-
-[LibraryClasses.common.DXE_DRIVER]
-  # SoC Drivers
-  ClockLib|MSM8916Pkg/Drivers/ClockDxe/ClockLib.inf
-
-[LibraryClasses.common.UEFI_APPLICATION]
-  # SoC Drivers
-  ClockLib|MSM8916Pkg/Drivers/ClockDxe/ClockLib.inf
-
-[LibraryClasses.common.UEFI_DRIVER]
-  # SoC Drivers
-  ClockLib|MSM8916Pkg/Drivers/ClockDxe/ClockLib.inf
 
 
 ################################################################################
@@ -211,8 +193,7 @@
   # SoC Drivers
   #
 
-  MSM8916Pkg/Drivers/ClockDxe/ClockDxe.inf
-  MSM8916Pkg/Drivers/BamDxe/BamDxe.inf
+
 
   #
   # Virtual Keyboard

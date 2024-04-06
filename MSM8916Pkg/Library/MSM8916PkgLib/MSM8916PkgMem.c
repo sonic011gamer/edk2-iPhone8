@@ -146,16 +146,28 @@ ArmPlatformGetVirtualMemoryMap (
 #define APPLE_PCIE_SYSTEM_MMIO_RANGE_1_BASE 0x600000000
 
   // Core MMIO Devices
-  //VirtualMemoryTable[++Index].PhysicalBase  = APPLE_CORE_SYSTEM_MMIO_RANGE_1_BASE;
-  //VirtualMemoryTable[Index].VirtualBase     = APPLE_CORE_SYSTEM_MMIO_RANGE_1_BASE;
-  //VirtualMemoryTable[Index].Length          = 0x100000000;
-  //VirtualMemoryTable[Index].Attributes      = ARM_MEMORY_REGION_ATTRIBUTE_DEVICE;
+  VirtualMemoryTable[++Index].PhysicalBase  = APPLE_CORE_SYSTEM_MMIO_RANGE_1_BASE;
+  VirtualMemoryTable[Index].VirtualBase     = APPLE_CORE_SYSTEM_MMIO_RANGE_1_BASE;
+  VirtualMemoryTable[Index].Length          = 0x100000000;
+  VirtualMemoryTable[Index].Attributes      = ARM_MEMORY_REGION_ATTRIBUTE_DEVICE;
+  
+  // PCIE shit
+  VirtualMemoryTable[++Index].PhysicalBase  = APPLE_PCIE_SYSTEM_MMIO_RANGE_1_BASE;
+  VirtualMemoryTable[Index].VirtualBase     = APPLE_PCIE_SYSTEM_MMIO_RANGE_1_BASE;
+  VirtualMemoryTable[Index].Length          = 0x10000000;
+  VirtualMemoryTable[Index].Attributes      = ARM_MEMORY_REGION_ATTRIBUTE_DEVICE;
 
-  // PCIe MMIO
-  //VirtualMemoryTable[++Index].PhysicalBase  = APPLE_PCIE_SYSTEM_MMIO_RANGE_1_BASE;
-  //VirtualMemoryTable[Index].VirtualBase     = APPLE_PCIE_SYSTEM_MMIO_RANGE_1_BASE;
-  //VirtualMemoryTable[Index].Length          = 0x10000000;
-  //VirtualMemoryTable[Index].Attributes      = ARM_MEMORY_REGION_ATTRIBUTE_DEVICE;
+  // TZ0
+  VirtualMemoryTable[++Index].PhysicalBase  = 0x87cfa8000;
+  VirtualMemoryTable[Index].VirtualBase     = 0x87cfa8000;
+  VirtualMemoryTable[Index].Length          = 0x001570000;
+  VirtualMemoryTable[Index].Attributes      = ARM_MEMORY_REGION_ATTRIBUTE_DEVICE;
+
+  // TZ1
+  VirtualMemoryTable[++Index].PhysicalBase  = 0x800000000;
+  VirtualMemoryTable[Index].VirtualBase     = 0x800000000;
+  VirtualMemoryTable[Index].Length          = 0x000100000;
+  VirtualMemoryTable[Index].Attributes      = ARM_MEMORY_REGION_ATTRIBUTE_DEVICE;
 
   // DDR - 4.0GB section
   VirtualMemoryTable[Index].PhysicalBase    = PcdGet64 (PcdSystemMemoryBase);
@@ -164,9 +176,9 @@ ArmPlatformGetVirtualMemoryMap (
   VirtualMemoryTable[Index].Attributes      = CacheAttributes;
 
   // FB
-  VirtualMemoryTable[++Index].PhysicalBase = 0x8BB80C000;
-  VirtualMemoryTable[Index].VirtualBase    = 0x8BB80C000;
-  VirtualMemoryTable[Index].Length         = 0x7F8000; /* 1088 * 1920 * 4 */
+  VirtualMemoryTable[++Index].PhysicalBase = 0x87c0a8000;
+  VirtualMemoryTable[Index].VirtualBase    = 0x87c0a8000;
+  VirtualMemoryTable[Index].Length         = 0x3D4000; /* 752 * 1334 * 4; rounded */
   VirtualMemoryTable[Index].Attributes     = ARM_MEMORY_REGION_ATTRIBUTE_WRITE_THROUGH;
 
   // End of Table

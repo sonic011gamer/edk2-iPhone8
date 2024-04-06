@@ -43,9 +43,9 @@ InitPeripherals (
   IN VOID
   )
 {
-	for (UINT64 addr = 0x8BB80C000ull; addr < 0x8BB80C000ull + (1088 * 1920 * 4); addr += 4) {
-		MmioWrite32(addr, 0xffffff);
-	}
+	//for (UINT64 addr = 0x8BB80C000ull; addr < 0x8BB80C000ull + (1088 * 1920 * 4); addr += 4) {
+	//	MmioWrite32(addr, 0xffffff);
+	//}
 }
 
 /**
